@@ -37,6 +37,14 @@ import static org.junit.Assert.*;
  *              assertion if the first has failed. We need to fix this NEXT
  *  NEXT: ENTRY 4: SINGLE ASSERTIONS MAKES BETTER TEST
  *
+ *  ENTRY 4: SINGLE ASSERTIONS MAKES BETTER TEST
+ *  1.  We need to create another @Test method specific for refundingSetAvalableFundsZero and throws Exception
+ *  2.  We create the AAA principle:
+ *      a.  Arrange: create new Creditor name creditor and the creditor addFunds of 10
+ *      b.  Act : the creditor refund() but we co not need to take the return int values since we just test the
+ *              AvailableFunds
+ *      c.  Assert: assertEqual if getAvailableFunds return 0 (just move one from previous @Test)
+ *
  * */
 
 public class CreditorTest {
@@ -66,7 +74,20 @@ public class CreditorTest {
         int refund = creditor.refund();
 
         //3-7c;
-        assertEquals(0,creditor.getAvailableFunds());
         assertEquals(25, refund);
+    }
+
+    @Test
+    //4-1;
+    public void refundingSetAvailableFundsZero() throws Exception {
+        //4-2a;
+        Creditor creditor = new Creditor();
+        creditor.addFunds(10);
+
+        //4-2b;
+        creditor.refund();
+
+        //4-2c;
+        assertEquals(0,creditor.getAvailableFunds());
     }
 }
