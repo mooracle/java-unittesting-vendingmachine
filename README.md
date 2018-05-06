@@ -7,3 +7,5 @@ In this course we will cover, unit testing best practices, as well as cover some
 We will be using [JUnit](http://junit.org) inside of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
 [Join Treehouse today and get your first two weeks free](http://trhou.se/2wksfree)! 
+
+we started the [ENTRY 1 HERE](com/teamtreehouse/vending/Creditor.java)
