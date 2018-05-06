@@ -1,5 +1,6 @@
 package com.teamtreehouse.vending;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -45,17 +46,37 @@ import static org.junit.Assert.*;
  *              AvailableFunds
  *      c.  Assert: assertEqual if getAvailableFunds return 0 (just move one from previous @Test)
  *
+ *  ENTRY 5 : FIXTURES
+ *  1.  We will create a @Before method to process the similar form of Creditor object initialization. To do this I
+ *      need to declare field Creditor object called creditor;
+ *  2.  to create the @Before method Alt+Insert and choose setUp() methoods . It also packed with throws Exception
+ *  3.  we initialize the Creditor and named it creditor.
+ *  4.  we delete the related code to those setUp() method.
+ *  NEXT: ENTRY 6: THE HAPPY PATH AND BEYOND
+ *  PRE-REQ:
+ *  1.  We need to GOTO com/teamtreehouse/vending/AlphaNumericChooser.java which extends abstract class AbstractChooser
+ *  2.  We create new Unit testing from that class. for now let's just accept all default setting
+ *  GOTO: com/teamtreehouse/vending/AlphaNumericChooserTest.java for ENTRY 6: THE HAPPY PATH AND BEYOND
  * */
 
 public class CreditorTest {
+    //5-1;
+    private Creditor creditor;
+
+    //5-2;
+    @Before
+    public void setUp() throws Exception {
+        //5-3;
+        creditor = new Creditor();
+
+    }
 
     @Test
     //2-1(deleted);3-2;
     public void addingFundsInrementsAvailabelFunds() throws Exception {
-        //2-3(deleted); 3-3a;
-        Creditor creditor = new Creditor();
+        //2-3(deleted); 3-3a(deleted); 5-4;
 
-        //3-3b;
+        // 3-3b;
         creditor.addFunds(25);
         creditor.addFunds(25);
 
@@ -66,23 +87,21 @@ public class CreditorTest {
     @Test
     //3-6;
     public void refundingReturnsAllAvailbleFunds() throws Exception {
-        //3-7a;
-        Creditor creditor = new Creditor();
-        creditor.addFunds(25);
+        //3-7a(deleted); 5-4;
+        creditor.addFunds(50);
 
         //3-7b;
         int refund = creditor.refund();
 
-        //3-7c;
-        assertEquals(25, refund);
+        //3-7c;5-5;
+        assertEquals(50, refund);
     }
 
     @Test
     //4-1;
     public void refundingSetAvailableFundsZero() throws Exception {
-        //4-2a;
-        Creditor creditor = new Creditor();
-        creditor.addFunds(10);
+        //4-2a(deleted); 5-4;
+        creditor.addFunds(50);
 
         //4-2b;
         creditor.refund();
