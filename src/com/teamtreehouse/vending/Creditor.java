@@ -13,7 +13,7 @@ package com.teamtreehouse.vending;
  *  9.  Choose Use JUnit4 for IntelliJ distribution
  *  10. Then let us just select one method to be tested in this case refund
  *  11. It will create new test Class inside the tests folder
- *  NEXT: ENTRY 2: RUNNING TESTS AND READING OUTPUTS GOTO:
+ *  NEXT: ENTRY 2: RUNNING TESTS AND READING OUTPUTS GOTO: com/teamtreehouse/vending/CreditorTest.java
  * */
 public class Creditor {
     private int funds;
