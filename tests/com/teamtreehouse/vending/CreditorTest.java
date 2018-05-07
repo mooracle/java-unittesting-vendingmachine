@@ -1,11 +1,13 @@
 package com.teamtreehouse.vending;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
-//ENTRY 2;
+//ENTRY 2; ENTRY 3; ENTRY 4; ENTRY 5; ENTRY 9
 /** ENTRY 2: RUNNING TESTS AND READING OUTPUTS
  *  1.  One thing you need to add to this test class is the throws Exception and change the test method to testRefund()
  *      NOTE: I know this is not the best practice but please play along for now
@@ -57,11 +59,23 @@ import static org.junit.Assert.*;
  *  1.  We need to GOTO com/teamtreehouse/vending/AlphaNumericChooser.java which extends abstract class AbstractChooser
  *  2.  We create new Unit testing from that class. for now let's just accept all default setting
  *  GOTO: com/teamtreehouse/vending/AlphaNumericChooserTest.java for ENTRY 6: THE HAPPY PATH AND BEYOND
+ *
+ *  ENTRY 9: TESTING NOT ENOUGH FUNDS EXCEPTION
+ *  1.  We will test using the @Rule as in ENTRY 8 but this time it's about the NotEnoughException
+ *  2.  We start by adding @Rule to the CreditorTest.java class on ExpectedException named expectedException
+ *  3.  Then we test the deduct method if exceeds the Available funds after the creditor addFunds of course
+ *  PRE-REQ: GOTO com/teamtreehouse/vending/VendingMachine.java AND CREATE test for that class (Goto/Test)
+ *  GOTO: com/teamtreehouse/vending/VendingMachineTest.java FOR ENTRY 10: WHAT TO TEST
+ *
  * */
 
 public class CreditorTest {
     //5-1;
     private Creditor creditor;
+
+    //9-2;
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     //5-2;
     @Before
@@ -108,5 +122,15 @@ public class CreditorTest {
 
         //4-2c;
         assertEquals(0,creditor.getAvailableFunds());
+    }
+
+    //9-3;
+    @Test
+    public void deductExceedsAvailableFundsInvokesException() throws Exception {
+        expectedException.expect(NotEnoughFundsException.class);
+
+        creditor.addFunds(10);
+
+        creditor.deduct(20);
     }
 }

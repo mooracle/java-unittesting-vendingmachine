@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  *  9.  next @Test if the item is not restocked and empty it will return null in getItemName
  *  10. next @Test if the item is not restocked the getItemPrice will be NullIlegalException
  *  11. next we test if the stock exceed available slots should invoke IllegalArgumentException with message
- *  GOTO: com/teamtreehouse/vending/Creditor.java ENTRY 9: TESTING NOT ENOUGH FUNDS EXCEPTION
+ *  GOTO: com/teamtreehouse/vending/CreditorTest.java ENTRY 9: TESTING NOT ENOUGH FUNDS EXCEPTION
  * */
 
 public class BinTest {
